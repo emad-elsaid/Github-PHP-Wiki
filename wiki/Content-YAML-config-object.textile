@@ -1,0 +1,79 @@
+"YAML":http://www.yaml.org is a structure language used for creating configuration, transfer objects and data from language to another language like JSON (JavaScript Object Notation).
+
+h2. How is YAML used in Egypt ?
+
+Egypt expect an Associative array of when execute Content file in the "config" mode, the array keys are variables names and values contain an associative array of the variable properties (type, label, default value, options).
+
+h2. Example of configuration object :
+
+this example require one numeric variable named (rows) from the user
+```yaml
+rows:
+	type: number
+```
+you should return that object if *mode=config* that will require a variable value from the user when adding the content to page and pass the variable value as global variable when executing the content, so if you want to print the variable value in *view mode* do this 
+```php
+<?php echo $rows ?>
+```
+another example of a content needs 4 variables (number, text, date, variable with predefined values)
+```yaml
+height :
+	type : number
+	label : "document height"
+horizontal_position :  
+	type : textbox 
+	default : left
+add_date :
+	type : date
+repeat :  
+	type : dropdown
+	options :
+		no-repeat:no-repeat
+		repeat:repeat
+		repeat-x:repeat-x
+		repeat-y:repeat-y
+	default : no-repeat
+```
+you must have noticed that you can add a *default* value to variable, and a *label* , *label* is what the user see before the field when adding content to page, it could be used when variable name is complex or user cannot understand what is the variable used for.
+
+and you noticed also when you define a predefined values to variable you choose the type as *dropdown* and give the *options* as an object where keys are the "values" and and the values are *labels*.
+
+if you want to put a help box before any variable you can define a variable with the value as string, here is an example
+```yaml
+height :
+	type : number
+	label : "document height"
+horizontal_position :  
+	type : textbox 
+	default : left
+information : "this is the date when the article is created, please choose a suitable day"
+add_date :
+	type : date
+```
+please notice the *information* variable it'll be displayed as a yellow box with the text inside.
+
+h2. Variables properties :
+
+* *type* : variable type (textbox, textarea, date, time ...etc)
+* *label* : variable label, replaces the variable name in GUI editor
+* *default* : the variable default value, when the user is too lazy to specify value add this property.
+* *options* : an array of (value=>label) it is required only by +dropdown+ variable to specify options values and labels
+
+h2. Variable types :
+
+# *textbox* : a simple text variable , a text box will be created to get user value
+# *textarea* : multiline text variable, a text area will be created
+# *date* : date selector will be created to give your content a valid date
+# *editor* : an HTML text will be provided using a Dojo WYSIWYG full editor
+# *file* : file chooser will be created and you'll get the file path
+# *file list* : you'll get a multiline text every line is a file path
+# *folder* : you'll get a folder path
+# *model* : you'll get a Codeigniter model file name
+# *number* : a number slider will be created to enable user to write only numbers
+# *password* : a password field will be created
+# *time* : a time chooser will be created to give you a valid time
+# *checkbox* : if your variable is boolean then you need that type 
+# *dropdown* : a predefined values variable, a dropdown list will be created using Dojo, note that you must specify options property to define options
+# *section* : you will get a section ID , a dropdown tree list will be provided to enable user to select section visually
+# *permission* : you'll get a string in the permission from it'll 
+# *smalleditor* : an HTML text will get using WYSIWYG small editor with basic controls like bold, italics, underline.

@@ -1,0 +1,69 @@
+.panel {
+position: fixed;
+bottom: 0px;
+left: 0;
+display: none;
+background: #000000;
+border:1px solid #111111;
+-moz-border-radius-topright: 20px;
+-webkit-border-top-right-radius: 20px;
+-moz-border-radius-bottomright: 20px;
+-webkit-border-bottom-right-radius: 20px;
+width: 200px;
+height: auto;
+padding:30px 30px 30px 50px;
+}
+
+.panel p{
+margin: 0 0 15px 0;
+padding: 0;
+color: #cccccc;
+}
+
+.panel a, .panel a:visited{
+margin: 0;
+padding: 0;
+color: #FFFFFF;
+text-decoration: none;
+font-size: 12px;
+white-space: nowrap;
+display:block;
+}
+
+.panel a:hover, .panel a:visited:hover{
+margin: 0;
+padding: 0;
+color: #ffffff;
+text-decoration: none;
+
+}
+
+.panel a img{
+	border: 0px none;
+	margin-right: 10px;
+}
+
+a.trigger{
+position: fixed;
+text-decoration: none;
+bottom: 0px; left: 0;
+font-size: 15px;
+letter-spacing:-1px;
+font-family: verdana, helvetica, arial, sans-serif;
+color:#fff;
+padding: 25px 25px 20px 20px;
+font-weight: 700;
+background:#333333 url(images/plus.png) 20% 55% no-repeat;
+border:1px solid #444444;
+-moz-border-radius-topright: 50px;
+-webkit-border-top-right-radius: 5px;
+display: block;
+}
+
+a.trigger:hover{
+background:#222222 url(images/plus.png) 20% 55% no-repeat;
+}
+
+a.active.trigger {
+background:#222222 url(images/minus.png) 20% 55% no-repeat;
+}

@@ -1,0 +1,8 @@
+h1. Github Wiki
+
+using that PHP project you can make your github project wiki available on your website
+you need to upload and install the project on your server and put your wiki file in *wiki* folder.
+
+*Note*: you can access wiki using git wiki URL
+
++project supports View TEXTILE files only - for now+

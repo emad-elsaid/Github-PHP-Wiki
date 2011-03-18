@@ -1,0 +1,85 @@
+h2. what is content ?
+
+content is what you see on page sometimes they call it widget or even a piece of HTML, in Codeigniter jargon it is a View files with extra features like configuration and editable areas,
+
+simply it is a PHP file that you'll put it in some place in Egypt and it'll be dicovered as a website piece and you'll be allowed to put it anywhere
+
+content can request data from user like text, boolean variable, file path, folder path..etc these will be available as global variables for your content, consider them as paramters and you content as a function that get executed and produce HTML to website.
+
+h2. Where to put content files ?
+
+put your content in @application/views/content/@, your application will be visible when logging to website and switch to edit mode then add new content to an edit area.
+
+h2. How contents are executed ?
+
+content is a normal Codeigniter view files that is loaded using the Codeigniter loader with the required variables and some extra variables.
+# *content* : Current Content Object (Datamapper object refer to that content in database) you can use it to get the content Id, path, information required or editable areas children.
+# *ci* : Codeigniter Instance you can use it to load helper and libraries, or access loaded classes.
+# *mode* : that will got 3 values every values will tell you what CI-Egypt needs 
+  ## *config* : in that mode your content must output a YAML object that has the requirements of your content see [[content YAML config object]] , note that in that mode you wont get any global variables.
+  ## *layout* : your content must write number of editable areas in it, just a number (1, 2, 4, etc)
+  ## *view* : website execute content in that mode to get HTML required to place at web page.
+# cell : an array of strings that are the contents of editable areas you, CI-Egypt got the cell number from the config mode and produce the children HTML for you then put it as an array every element is a cell contents
+
+h2. How CI-Egypt saves content tree ?
+
+CI-Egypt saves every content with it's required information as serialized object, every content added to a section will be visible in that section, you can make content visible in the children sections as will.
+
+that means you can add your website layout to the index page and make it visible to children sections that will make all website has that content, you can add a sub content in one of the editable areas inside that layout and will be visible in the section you added the content in it.
+
+when CI-Egypt renders the page it get the content with no parent content that is added in that section or ( in any of the parent sections and you requested to be visible in children ) then render these contents in their correct order,
+when rendering every content it get it's children that is added in that section or ( in any of the parent sections and you requested to be visible in children ) and recur that till the tree ends, then put all these in the page body.
+
+h2. How to request a JavaScript file or a CSS file ? 
+
+you can use the Theme Helper to do that, it has a smart function called *theme_add()* you can pass javascript,css file path and it'll add it to header, 
+
+you can also use *theme_add()* to add script , style or meta tags , if the function failed to figure out the text type it will just add it to the header, *theme_add()* also can take Dojo required component as a parameter ex:
+
+```php
+<?php 
+theme_add('dojo.form.textbox');
+theme_add('jquery/jquery.js');
+theme_add('assets/style/reset.css');
+?>
+```
+
+an example of a content file that request a file path from user and shows the image on page
+```php
+<?php if( $mode=='config' ): ?>
+image:
+	type:file
+style:
+	type:textarea
+<?php elseif( $mode=='view' ): ?>
+<img src="<?= base_url().$image; ?>" style="<?= $style; ?>" >
+<?php endif; ?>
+```
+
+another example for a table content that request number of rows and columns then request cells = rows*columns  and print the cells output, an alos request extra style for the table.
+```php
+<?php if( $mode=='config' ): ?>
+columns:
+	type:number
+	default:1
+rows:
+	type:number
+	default:1
+style:
+	type:textarea
+<?php elseif( $mode=='layout' ): ?>
+<?= $columns*$rows ?>
+<?php elseif( $mode=='view' ): ?>
+<table style="<?= $style ?>">
+<?php for( $i=0; $i<$rows; $i++ ){ ?>
+	 <tr>
+	<?php for( $j=0; $j<$columns; $j++ ){ ?>
+		 <td>
+		 <?= $cell[$i*$columns+$j] ?>
+		 </td>
+	<?php } ?>
+	 </tr>
+<?php } ?>
+ </table>
+<?php endif; ?>
+```

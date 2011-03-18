@@ -1,0 +1,3 @@
+Egypt v 0.1 Alpha :
+# "Egypt v 0.1 Alpha package":https://github.com/blazeeboy/Codeigniter-Egypt/zipball/0.1-alpha
+# "Egypt Docs":https://github.com/blazeeboy/Codeigniter-Egypt/tree/gh-pages

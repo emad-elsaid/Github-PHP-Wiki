@@ -1,0 +1,50 @@
+[[images/logo.png]]
+
+h2. What is Egypt ?
+
+Egypt is the land of warriors :D, alright i was kidding Egypt is a new CMS to develop web applications, it contain a ready made Users, Users group, Pages tree database and a front-end to manage them and their contents and properties.
+
+h2. What does the package contains ?
+
+it contains "Codeigniter":http://codeigniter.com , "Datamapper":http://datamapper.wanwizard.eu library, "Ion-Auth":https://github.com/benedmunds/CodeIgniter-Ion-Auth library, "Dojo+Dijit":http://dojotoolkit.org/ toolkit, "jQuery":http://jquery.com/ and "Egypt related libraries":http://blazeeboy.github.com/Codeigniter-Egypt/ and helpers (system library, GUI library, Permissions helper, "YAML parser(spyc)":http://code.google.com/p/spyc/, Theme helper) 
+plus controllers for
+# Users login/logout/change password ..etc
+# Install database
+# Page rendering
+# Users/Groups management
+# Sections (menus) management
+# Page Editor
+# Edit mode changer
+
+h2. Why another CMS ?
+
+i know that the market don't want another CMS after the huge success of wordpress, drupal, joomla and many others, but don't you see that ideas never ends ? , i got the idea of creating layouts and fill it with other content and fill the content editable areas with other content in an infinite manner, that is the main idea of CI-Egypt, i alway want that power of editing the website online without the need to FTP application and add/edit/delete website pieces without any other application except the web browser, CI-Egypt gives you this.
+
+h2. I want the Features 
+
+alright Mr fast reader I'll give you some of its features in a hurry :
+* *Database* with (Users, Groups, Sections, Content )
+* *Codeigniter2* based
+* latest version of *Datamapper*
+* latest version of *Dojo and Dijit* for robust UI
+* a GUI *manager for Users and groups*
+* a GUI *manager for Section* (menus)
+* a GUI *manager for Contents* (website pieces)
+* *YAML friendly* content configuration
+* Ready made *Authentication system* using Ion-Auth.
+* *Theme Helper* for easier assets handling
+* *Advanced permission* system you could use even day, months beside users and groups IDs
+* *infinite levels* menus and content hierarchy
+* *PHP library* for creating Dijit UI
+
+h2. I want to extend Egypt with my layout and themes
+
+so you are one of the coding heroes ? a designer or a geek ?, alright extending Codeigniter is every easy see [[Extending Egypt]] to more information.
+
+h2. Egypt components architecture :
+
+[[images/arch.png]]
+
+h2. Need Help ? get the Documentation :
+
+you can get all Docs and API from the docs branch, from "Here":https://github.com/blazeeboy/Codeigniter-Egypt/tree/gh-pages

@@ -1,0 +1,3 @@
+Egypt has 2 extension points :
+# [[Creating an application]] : that will help you create a Codeigniter application with menu bar, about box and automatic permission system and other many features.
+# [[Creating a content Piece]] : content is what you see on page sometimes they call it widget or even a piece of HTML, in Codeigniter jargon it is a View files with extra features like configuration and editable areas.

@@ -1,0 +1,46 @@
+h2. What are Permissions ?
+
+permission is a boolean expression (TRUE/FALSE) that determine who/when could view/edit/update...etc a piece of content or a section.
+
+h2.What are the permissions tokens ?
+
+you can use 2 types of tokens :
+# *Connector* : and, or, not
+# *Operator* : =, !=, >, <, >=, <=, !
+# *Boolean variables* : (True/false) variable like ,admin, logged, guest, view, edit
+# *Numeric variables* : group, user, section, day, month, year
+the permission syntax is :
+
+```text
+expression Connector expression
+expression = expression Connector expression 
+expression = {BooleanVariable} or {NumericVar Oper Number}
+```
+
+example :
+
+```text
+guest or user=4 and day=13
+```
+
+that will be true if the user guest in or user ID equal to 4 and the current day is 13,
+if you want to exclude user 14 from the permission.
+
+```text
+guest or !user=4 and day=13
+```
+that will show for guest user or not the user 4 and day is 13
+
+some other examples :
+```text
+logged
+```
+```text
+admin or group=5
+```
+```text
+!group=6 and user=5 and user=7
+```
+```text
+group=3 and day>1 and day<10 and year>=2011
+```
